@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .cookie {
+      animation: rotate 5s linear infinite;
+      text-align: center;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
+
+<body class="">
+
+  <div class="min-h-screen bg-yellow-300 p-10 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
+    <div class="bg-yellow-700  flex items-center rounded justify-center p-4">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="col-span-3 bg-orange-300 p-3 rounded">
+          <h1 class="text-black text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
+            Whoa Responsive !
+          </h1>
+          <p class="md:text-2xl lg:text-3xl text-gray-900 lg:text-blue-500 md:text-red-500">
+            Responsive can be done using Tailwind
+          </p>
+        </div>
+        <div class="col-span-2 bg-orange-100 p-3 rounded">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cookie.png" id="click" class="cookie"
+            style="width: 400px" onclick="increment()" />
+        </div>
+        <div
+          class="bg-orange-500 md:bg-lime-400 lg:bg-green-400 p-3 rounded text-black text-2xl md:text-4xl lg:text-6xl font-bold flex justify-center items-center">
+          <div id="display"></div>
+        </div>
+        <div
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center">
+          <input id="multiply" type="button" value="" class="w-full " />
+        </div>
+        <div
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center">
+          <button id="reset" onclick="reset() " class="w-full sm:w-auto">Reset</button>
+        </div>
+        <div
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center">
+          <input id="bonus" type="button" value="" class="text-sm w-full sm:w-auto" />
+        </div>
+        <div
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center">
+          <input id="autoclick" type="button" value="" class="w-full sm:w-auto" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+
+
+
+  <script>
+    var display = document.getElementById("display");
+    var click = document.getElementById("click");
+    var multiply = document.getElementById("multiply");
+    var autoclick = document.getElementById("autoclick");
+    var bonus = document.getElementById("bonus");
+
+    var multiplierCost = 20;
+    var autoclickCost = 50;
+    var bonusCost = 500;
+
+    var autoclickOn = false;
+    var bonusOn = false;
+
+    var score = 0;
+    var clickValue = 1;
+    var multiplier = 1;
+    var bonusTime = 5;
+
+    function reset() {
+      score = 0;
+      clickValue = 1;
+      multiplier = 1;
+      bonusTime = 5;
+      autoclickOn = false;
+      bonusOn = false;
+      multiplierCost = 20;
+      autoclickCost = 50;
+      bonusCost = 500;
+      displayScore();
+      displayMultiplier();
+      displayAutoclick();
+      displayBonus();
+      autoclick.disabled = true;
+      bonus.disabled = true;
+      multiply.disabled = true;
+    }
+
+    function displayScore() {
+      display.innerHTML = score;
+    }
+
+    function displayMultiplier() {
+      multiply.value =
+        "Multiplier x" +
+        multiplier +
+        " (next: cost " +
+        multiplierCost +
+        ")";
+    }
+
+    function displayAutoclick() {
+      autoclick.value = "Autoclick (cost " + autoclickCost + ")";
+    }
+
+    function displayBonus() {
+      bonus.value = "Bonus (cost " + bonusCost + ")";
+    }
+
+    function displayBonusTime() {
+      bonus.value = "Bonus (time: " + bonusTime + " sec)";
+    }
+
+    function multiplyEnabler() {
+      if (score >= multiplierCost) {
+        multiply.disabled = false;
+      } else {
+        multiply.disabled = true;
+      }
+    }
+
+    function autoclickEnabler() {
+      if (!autoclickOn && score >= autoclickCost) {
+        autoclick.disabled = false;
+      } else {
+        autoclick.disabled = true;
+      }
+    }
+
+    function bonusEnabler() {
+      if (!bonusOn && score >= bonusCost) {
+        bonus.disabled = false;
+      } else {
+        bonus.disabled = true;
+      }
+    }
+
+    function buttonsEnabler() {
+      multiplyEnabler();
+      autoclickEnabler();
+      bonusEnabler();
+    }
+
+    function increaseScore() {
+      score += clickValue;
+      buttonsEnabler();
+      displayScore();
+    }
+
+    function increaseMultiplier() {
+      score -= multiplierCost;
+      multiplier += 1;
+      clickValue = multiplier;
+      if (bonusOn) {
+        clickValue *= 2;
+      }
+      multiplierCost *= multiplier;
+      buttonsEnabler();
+      displayScore();
+      displayMultiplier();
+    }
+
+    function enableAutoclick() {
+      score -= autoclickCost;
+      autoclickOn = true;
+      autoclick.disabled = true;
+      displayScore();
+    }
+
+    function autoclickF() {
+      if (autoclickOn) {
+        increaseScore();
+      }
+    }
+
+    function enableBonus() {
+      score -= bonusCost;
+      bonusOn = true;
+      clickValue *= 2;
+      bonus.disabled = true;
+      displayScore();
+      displayBonusTime();
+    }
+
+    function disableBonus() {
+      bonusOn = false;
+      bonusTime = 30;
+      clickValue = multiplier;
+      displayBonus();
+      buttonsEnabler();
+    }
+
+    function bonusF() {
+      if (bonusOn) {
+        --bonusTime;
+        displayBonusTime();
+        if (bonusTime === 0) {
+          disableBonus();
+        }
+      }
+    }
+
+    displayScore();
+    displayMultiplier();
+    displayAutoclick();
+    displayBonus();
+    multiply.disabled = true;
+    autoclick.disabled = true;
+    bonus.disabled = true;
+
+    click.addEventListener("click", increaseScore);
+    multiply.addEventListener("click", increaseMultiplier);
+    autoclick.addEventListener("click", enableAutoclick);
+    bonus.addEventListener("click", enableBonus);
+    autoclickInterval = window.setInterval(autoclickF, 1000);
+    bonusInterval = window.setInterval(bonusF, 1000);
+  </script>
+</body>
+
+</html>
