@@ -12,6 +12,7 @@
     .cookie {
       animation: rotate 5s linear infinite;
       text-align: center;
+      cursor: pointer;
     }
 
     @keyframes rotate {
@@ -62,6 +63,9 @@
 <!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
 
 <body class="">
+
+
+
   <div class=" text-white">
     <div id="notification" class="col-span-3 bg-blue-900 p-3 rounded">
       Multiplier
@@ -74,46 +78,51 @@
     </div>
   </div>
 
+
+
   <div
     class="min-h-screen flex items-center justify-center bg-yellow-300 p-4 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
-    <div class="bg-yellow-700  flex items-center rounded justify-center p-4">
+    <div class="bg-yellow-700 min-h-screen flex items-center rounded justify-center p-4">
       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="col-span-3 bg-orange-300 p-3 rounded">
-          <h1 class="text-black text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
-            Whoaa Responsive !
+          <h1 class="text-black text-3xl md:text-4xl lg:text-6xl font-bold mb-4 items-center justify-center flex">
+            Cookie Clicker
           </h1>
-          <p class="md:text-2xl lg:text-3xl text-gray-900 lg:text-blue-500 md:text-red-500">
+          <p
+            class="items-center justify-center flex md:text-2xl lg:text-3xl text-gray-900 lg:text-blue-500 md:text-red-500">
             Responsive can be done using Tailwind
           </p>
         </div>
-        <div class="col-span-2 bg-orange-100 p-3 rounded">
+        <div
+          class="bg-orange-500 col-span-3 md:bg-lime-400 lg:bg-green-400  rounded text-black text-2xl md:text-4xl lg:text-6xl font-bold lg:col-span-1 flex justify-center items-center">
+          <div id="display"></div>
+        </div>
+        <div class="col-span-3 bg-orange-100 p-3 rounded lg:col-span-2">
           <img src="https://www.pngall.com/wp-content/uploads/2016/07/Cookie-PNG-Image.png" width="360" height="360"
             alt="Click me" id="click" class="cookie" onclick="increment()" />
         </div>
+
         <div
-          class="bg-orange-500 md:bg-lime-400 lg:bg-green-400 p-3 rounded text-black text-2xl md:text-4xl lg:text-6xl font-bold flex justify-center items-center">
-          <div id="display"></div>
-        </div>
-        <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center">
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center  hover:bg-yellow-500">
           <input id="multiply" type="button" value="" class="w-full " />
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center">
-          <button id="reset" onclick="reset() " class="w-full sm:w-auto">Reset</button>
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-blue-500">
+          <button id="reset" onclick="reset() " class="w-full sm:w-auto ">Reset</button>
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center">
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-red-500">
           <input id="bonus" type="button" value="" class="text-sm w-full sm:w-auto" />
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center">
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center hover:bg-green-500">
           <input id="autoclick" type="button" value="" class="w-full sm:w-auto" />
         </div>
         <div id="invisible" style="display:none;"
           class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-3 flex justify-center items-center">
           <button id="random" class="w-full sm:w-auto">Add a random amount of cookies</button>
         </div>
+
       </div>
     </div>
   </div>
@@ -168,6 +177,7 @@
     bonus.addEventListener("click", function () {
       notification3.classList.add('show');
     });
+
 
     function reset() {
       score = 0;
@@ -338,7 +348,7 @@
       displayDiv.textContent = newValue;
     }
 
-    setInterval(showInvisibleButton, (Math.random() * (240000 - 960000) + 960000));
+    setInterval(showInvisibleButton, (Math.random() * (24000 - 96000) + 96000));
 
   </script>
 </body>
