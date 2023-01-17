@@ -25,11 +25,13 @@
       }
     }
 
+
+
     #notification {
       position: fixed;
-
       bottom: -8rem;
       transition: all .4s;
+
     }
 
     #notification.show {
@@ -57,6 +59,31 @@
     #notification3.show {
       bottom: 7rem;
     }
+
+
+
+
+    .btn {
+      text-decoration: none;
+      border: none;
+      padding: 12px 40px;
+      font-size: 16px;
+
+      border-radius: 5px;
+
+      cursor: pointer;
+      outline: none;
+      transition: 0.5s all;
+    }
+
+    /* Adding transformation when the button is active */
+
+    .btn:active {
+      transform: scale(0.80);
+      /* Scaling button to 0.98 to its original size */
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      /* Lowering the shadow */
+    }
   </style>
 </head>
 
@@ -66,30 +93,31 @@
 
 
 
-  <div class=" text-white">
-    <div id="notification" class="col-span-3 bg-blue-900 p-3 rounded">
+  <div class=" text-white flex  rounded   ">
+    <div id="notification" class="text-2xl col-span-3 bg-pink-500 p-6 rounded-full  ">
       Multiplier
     </div>
-    <div id="notification2" class="col-span-3 bg-orange-900 p-3 rounded">
+    <div id="notification2" class="col-span-3 bg-green-500 p-3 rounded-full">
       Autoclick
     </div>
-    <div id="notification3" class="col-span-3 bg-purple-900 p-3 rounded">
+    <div id="notification3" class="text-2xl col-span-3 bg-purple-500 p-6 rounded-full">
       Bonus
     </div>
+
+
   </div>
 
 
 
   <div
-    class="min-h-screen flex items-center justify-center bg-yellow-300 p-4 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
+    class="min-h-screen flex items-center justify-center bg-yellow-300 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
     <div class="bg-yellow-700 min-h-screen flex items-center rounded justify-center p-4">
       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="col-span-3 bg-orange-300 p-3 rounded">
           <h1 class="text-black text-3xl md:text-4xl lg:text-6xl font-bold mb-4 items-center justify-center flex">
             Cookie Clicker
           </h1>
-          <p
-            class="items-center justify-center flex md:text-2xl lg:text-3xl text-gray-900 lg:text-blue-500 md:text-red-500">
+          <p class="items-center justify-center flex md:text-2xl lg:text-3xl text-gray-900 ">
             Responsive can be done using Tailwind
           </p>
         </div>
@@ -103,24 +131,24 @@
         </div>
 
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center  hover:bg-yellow-500">
-          <input id="multiply" type="button" value="" class="w-full " />
+          class="bg-yellow-100 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center  hover:bg-yellow-500">
+          <input id="multiply" type="button" value="" class="btn w-full " />
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-blue-500">
-          <button id="reset" onclick="reset() " class="w-full sm:w-auto ">Reset</button>
+          class="bg-yellow-100 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-blue-500">
+          <button id="reset" onclick="reset() " class="btn w-full sm:w-auto ">Reset</button>
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-red-500">
-          <input id="bonus" type="button" value="" class="text-sm w-full sm:w-auto" />
+          class="bg-yellow-100 rounded col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-red-500">
+          <input id="bonus" type="button" value="" class="btn text-sm w-full sm:w-auto" />
         </div>
         <div
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center hover:bg-green-500">
-          <input id="autoclick" type="button" value="" class="w-full sm:w-auto" />
+          class="bg-yellow-100 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center hover:bg-green-500">
+          <input id="autoclick" type="button" value="" class="btn w-full sm:w-auto" />
         </div>
         <div id="invisible" style="display:none;"
-          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-3 flex justify-center items-center">
-          <button id="random" class="w-full sm:w-auto">Add a random amount of cookies</button>
+          class="bg-purple-500 rounded col-span-3 md:col-span-3 lg:col-span-3 xl:col-span-3 flex justify-center items-center hover:bg-purple-800">
+          <button id="random" class="btn w-full sm:w-auto">Add a random amount of cookies</button>
         </div>
 
       </div>
@@ -168,6 +196,9 @@
 
     multiply.addEventListener("click", function () {
       notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 2000);
     });
 
     autoclick.addEventListener("click", function () {
@@ -176,7 +207,18 @@
 
     bonus.addEventListener("click", function () {
       notification3.classList.add('show');
+      setTimeout(() => {
+        notification3.classList.remove('show');
+      }, 2000);
     });
+
+    bonus.addEventListener("click", function () {
+      notification4.classList.add('show');
+      setTimeout(() => {
+        notification4.classList.remove('show');
+      }, 2000);
+    });
+
 
 
     function reset() {
