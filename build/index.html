@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A Cookie challenge for everyone">
   <title>Cookie Clicker</title>
-  <link rel="stylesheet" href="build/css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     .cookie {
       animation: rotate 5s linear infinite;
@@ -59,7 +59,7 @@
   </style>
 </head>
 
-<!-- <body class ="min-h-screen grid place-content-center radial-blue"> -->
+<!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
 
 <body class="">
   <div class=" text-white">
@@ -109,6 +109,10 @@
         <div
           class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center">
           <input id="autoclick" type="button" value="" class="w-full sm:w-auto" />
+        </div>
+        <div id="invisible" style="display:none;"
+          class="bg-yellow-100 p-3 rounded col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-3 flex justify-center items-center">
+          <button id="random" class="w-full sm:w-auto">Add a random amount of cookies</button>
         </div>
       </div>
     </div>
@@ -315,6 +319,27 @@
     bonus.addEventListener("click", enableBonus);
     autoclickInterval = window.setInterval(autoclickF, 1000);
     bonusInterval = window.setInterval(bonusF, 1000);
+
+    function showInvisibleButton() {
+      const invisibleButton = document.getElementById("invisible");
+      invisibleButton.style.display = "block";
+
+      setTimeout(function () {
+        invisibleButton.style.display = "none";
+      }, 2500);
+      invisibleButton.addEventListener("click", function () {
+        invisibleButton.style.display = "none";
+      });
+
+      const displayDiv = document.getElementById("display");
+      let currentValue = parseInt(displayDiv.textContent);
+      if (isNaN(currentValue)) currentValue = 0;
+      const newValue = currentValue + Math.floor(Math.random() * (60 - 3 + 1) + 3);
+      displayDiv.textContent = newValue;
+    }
+
+    setInterval(showInvisibleButton, (Math.random() * (240000 - 960000) + 960000));
+
   </script>
 </body>
 
