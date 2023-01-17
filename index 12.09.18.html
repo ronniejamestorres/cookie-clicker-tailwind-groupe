@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A Cookie challenge for everyone">
   <title>Cookie Clicker</title>
-  <link rel="stylesheet" href="build/css/style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     .cookie {
       animation: rotate 5s linear infinite;
@@ -45,18 +45,32 @@
     #notification2.show {
       bottom: 1rem;
     }
+
+    #notification3 {
+      position: fixed;
+
+      bottom: -8rem;
+      transition: all .4s;
+    }
+
+    #notification3.show {
+      bottom: 7rem;
+    }
   </style>
 </head>
 
 <!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
 
 <body class="">
-  <div class="">
-    <div id="notification" class="col-span-3 bg-orange-600 p-3 rounded">
-      Multiplier x1
+  <div class=" text-white">
+    <div id="notification" class="col-span-3 bg-blue-900 p-3 rounded">
+      Multiplier
     </div>
-    <div id="notification2" class="col-span-3 bg-orange-300 p-3 rounded">
+    <div id="notification2" class="col-span-3 bg-orange-900 p-3 rounded">
       Autoclick
+    </div>
+    <div id="notification3" class="col-span-3 bg-purple-900 p-3 rounded">
+      Bonus
     </div>
   </div>
 
@@ -147,6 +161,10 @@
       notification2.classList.add('show');
     });
 
+    bonus.addEventListener("click", function () {
+      notification3.classList.add('show');
+    });
+
     function reset() {
       score = 0;
       clickValue = 1;
@@ -164,6 +182,9 @@
       autoclick.disabled = true;
       bonus.disabled = true;
       multiply.disabled = true;
+      document.getElementById("notification").style.display = "none";
+      document.getElementById("notification2").style.display = "none";
+      document.getElementById("notification3").style.display = "none";
     }
 
     function displayScore() {
@@ -174,7 +195,7 @@
       multiply.value =
         "Multiplier x" +
         multiplier +
-        " (next: cost " +
+        " (cost " +
         multiplierCost +
         ")";
     }
