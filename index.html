@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="build/css/style.css" />
+  <meta name="description" content="A Cookie challenge for everyone">
+  <title>Cookie Clicker</title>
+  <link rel="stylesheet" href="css/style.css" />
   <style>
     .cookie {
       animation: rotate 5s linear infinite;
@@ -22,14 +23,45 @@
         transform: rotate(360deg);
       }
     }
+
+    #notification {
+      position: fixed;
+
+      bottom: -8rem;
+      transition: all .4s;
+    }
+
+    #notification.show {
+      bottom: 4rem;
+    }
+
+    #notification2 {
+      position: fixed;
+
+      bottom: -8rem;
+      transition: all .4s;
+    }
+
+    #notification2.show {
+      bottom: 1rem;
+    }
   </style>
 </head>
 
 <!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
 
 <body class="">
+  <div class="">
+    <div id="notification" class="col-span-3 bg-orange-600 p-3 rounded">
+      Multiplier x1
+    </div>
+    <div id="notification2" class="col-span-3 bg-orange-300 p-3 rounded">
+      Autoclick
+    </div>
+  </div>
 
-  <div class="min-h-screen bg-yellow-300 p-10 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
+  <div
+    class="min-h-screen flex items-center justify-center bg-yellow-300 p-4 md:bg-purple-400 lg:bg-orange-400 xl:bg-red-700">
     <div class="bg-yellow-700  flex items-center rounded justify-center p-4">
       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="col-span-3 bg-orange-300 p-3 rounded">
@@ -41,8 +73,8 @@
           </p>
         </div>
         <div class="col-span-2 bg-orange-100 p-3 rounded">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Cookie.png" id="click" class="cookie"
-            style="width: 400px" onclick="increment()" />
+          <img src="https://www.pngall.com/wp-content/uploads/2016/07/Cookie-PNG-Image.png" width="360" height="360"
+            alt="Click me" id="click" class="cookie" onclick="increment()" />
         </div>
         <div
           class="bg-orange-500 md:bg-lime-400 lg:bg-green-400 p-3 rounded text-black text-2xl md:text-4xl lg:text-6xl font-bold flex justify-center items-center">
@@ -72,6 +104,23 @@
 
 
   <script>
+
+    //const button = document.querySelector("button")
+    //button.addEventListener("click", () => {
+    //Notification.requestPermission().then(perm => {
+    //alert(perm)
+    //})
+    //})
+
+    //const button = document.querySelector('button');
+    //const notification = document.querySelector('#notification');
+    //button.addEventListener('click', () => {
+    //  notification.classList.add('show');
+    //});
+
+
+
+
     var display = document.getElementById("display");
     var click = document.getElementById("click");
     var multiply = document.getElementById("multiply");
@@ -89,6 +138,14 @@
     var clickValue = 1;
     var multiplier = 1;
     var bonusTime = 5;
+
+    multiply.addEventListener("click", function () {
+      notification.classList.add('show');
+    });
+
+    autoclick.addEventListener("click", function () {
+      notification2.classList.add('show');
+    });
 
     function reset() {
       score = 0;
