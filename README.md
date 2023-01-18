@@ -24,7 +24,7 @@
 
 -The student has realized all must-have features.
 -There is a published GitHub page available.
--The readme is complete
+-The readme is complete.
 -The HTML and CSS pass the W3C Validation tool.
 -The lighthouse test scores 90 at least on Performance, Best Practices, -Accessibility and SEO.
 -The indentation is perfect
