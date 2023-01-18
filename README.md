@@ -2,21 +2,15 @@
 
 # A game by :
 
-## Nicolas
+## Nico Corradini
 
-## Taoufiq
+## Taoufiq Acharifi
 
-## and Ronnie James
+## and Ronnie James Torres
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-Pimp up the readme file:
-What, Why, When, How, Who.
-Pending things to do
-It must contain a link to the "live" version. The "live" version must contain a link to the source code on GitHub.
-Publish the link to the "live" version on Discord.
 
 ##### _Study the request (What & Why ?))_
 
@@ -26,7 +20,7 @@ Publish the link to the "live" version on Discord.
 ##### _Identify technical challenges (How ?)_
 
 > By using a framework called Tailwind instead of Bootstrap.
-> We worked each of us alone on a specific part of the project, then we gathered and push our branches online.
+> We worked each of us alone on a different parts of the project, then we gathered and push our branches online.
 
 -The student has realized all must-have features.
 -There is a published GitHub page available.
@@ -34,3 +28,10 @@ Publish the link to the "live" version on Discord.
 -The HTML and CSS pass the W3C Validation tool.
 -The lighthouse test scores 90 at least on Performance, Best Practices, -Accessibility and SEO.
 -The indentation is perfect
+
+https://ronniejamestorres.github.io/cookie-clicker-tailwind-groupe/build/index.html
+git@github.com:ronniejamestorres/cookie-clicker-tailwind-groupe.git
+
+![Alt text](/img//test.jpg "Optional title")
+![Alt text](/img//img1.jpg "Optional title")
+![Alt text](/img//img2.jpg "Optional title")

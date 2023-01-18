@@ -90,8 +90,6 @@
   </style>
 </head>
 
-<!-- <body class="min-h-screen grid place-content-center radial-blue"> -->
-
 <body>
   <div class="text-white flex rounded">
     <div id="notification" class="text-2xl bg-yellow-500 p-5 rounded-full">
@@ -105,26 +103,26 @@
     </div>
   </div>
 
-  <div class="min-h-screen  flex items-center justify-center" style="
+  <div class="min-h-screen flex items-center justify-center" style="
         background-image: url('https://wallpapercave.com/wp/wp2902991.jpg');
       ">
-    <div class="border border-white bg-black bg-opacity-70 min-h-screen  items-center rounded justify-center p-4 " ;>
-      <div class=" grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="col-span-3 bg-black  p-3 rounded md:col-span-3 lg:col-span-3">
+    <div class="border border-white bg-black bg-opacity-70 min-h-screen items-center rounded justify-center p-4" ;>
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="col-span-3 bg-black p-3 rounded md:col-span-3 lg:col-span-3">
           <img src="https://i.pinimg.com/originals/96/ec/36/96ec36d867a47f62a6d940c38768f62a.gif" width="360"
             height="360" alt="Click me" id="logo" class="" onclick="" />
         </div>
-        <div
-          class="col-span-3 bg-black p-5 rounded  border-x-4  border-yellow-400 md:border-cyan-400 lg:border-rose-600">
+        <div class="col-span-3 bg-black p-5 rounded border-x-4 border-yellow-400 md:border-cyan-400 lg:border-rose-600">
           <h1
             class="text-yellow-400 md:text-cyan-400 lg:text-rose-600 text-3xl md:text-4xl lg:text-6xl font-bold mb-4 items-center justify-center flex">
             Click the globe !
           </h1>
           <p class="items-center justify-center flex md:text-2xl lg:text-2xl text-gray-300">
-            A game by Nicolas, Taoufiq and Ronnie James</p>
+            A game by Nico, Taoufiq and Ronnie James
+          </p>
         </div>
         <div
-          class=" text-white col-span-3 p-3 bg-black rounded  border border-white text-2xl md:text-4xl lg:text-6xl font-bold lg:col-span-1 flex justify-center items-center">
+          class="text-white col-span-3 p-3 bg-black rounded border border-white text-2xl md:text-4xl lg:text-6xl font-bold lg:col-span-1 flex justify-center items-center">
           <div id="display"></div>
         </div>
         <div class="col-span-3 p-5 m-9 rounded lg:col-span-2">
@@ -134,7 +132,7 @@
 
         <div
           class="bg-black p-3 rounded border border-white text-yellow-400 col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center hover:bg-yellow-400 hover:text-black">
-          <input id="multiply" type="button" value="" class="btn  w-full" />
+          <input id="multiply" type="button" class="btn w-full" />
         </div>
         <div
           class="bg-black p-3 rounded border border-white text-lime-400 col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-lime-400 hover:text-black">
@@ -143,14 +141,14 @@
           </button>
         </div>
         <div
-          class="bg-black p-3 rounded border  border-white text-cyan-400 col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-cyan-400 hover:text-black">
-          <input id="bonus" type="button" value="" class="btn  w-full sm:w-auto" />
+          class="bg-black p-3 rounded border border-white text-cyan-400 col-span-3 md:col-span-1 lg:col-span-1 xl:col-span-1 flex justify-center items-center hover:bg-cyan-400 hover:text-black">
+          <input id="bonus" type="button" class="btn w-full sm:w-auto" />
         </div>
         <div
           class="bg-black p-3 rounded border border-white text-rose-600 col-span-3 md:col-span-2 lg:col-span-2 xl:col-span-2 flex justify-center items-center hover:bg-rose-600 hover:text-black">
-          <input id="autoclick" type="button" value="" class="btn w-full sm:w-auto" />
+          <input id="autoclick" type="button" class="btn w-full sm:w-auto" />
         </div>
-        <div id="invisible" style="display:none"
+        <div id="invisible" style="display: none"
           class="bg-rose-600 p-3 rounded border border-red-400 text-white col-span-3 md:col-span-3 lg:col-span-3 xl:col-span-3 flex justify-center items-center hover:bg-rose-900 hover:text-black">
           <button id="random" class="btn w-full sm:w-auto text-2xl">
             Random activated
@@ -159,21 +157,9 @@
       </div>
     </div>
   </div>
-  <!---->
+
 
   <script>
-    //const button = document.querySelector("button")
-    //button.addEventListener("click", () => {
-    //Notification.requestPermission().then(perm => {
-    //alert(perm)
-    //})
-    //})
-
-    //const button = document.querySelector('button');
-    //const notification = document.querySelector('#notification');
-    //button.addEventListener('click', () => {
-    //  notification.classList.add('show');
-    //});
 
     var display = document.getElementById("display");
     var click = document.getElementById("click");
@@ -385,8 +371,6 @@
     }
 
     setInterval(showInvisibleButton, Math.random() * (24000 - 96000) + 96000);
-
-
   </script>
 </body>
 
