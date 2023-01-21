@@ -1,17 +1,5 @@
 # Cookie Clicker Challenge
 
-# A game by :
-
-## Nico Corradini
-
-## Taoufiq Acharifi
-
-## and Ronnie James Torres
-
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 ##### _Study the request (What & Why ?))_
 
 > A Cookie Clicker Challenge has been requested.
@@ -32,6 +20,5 @@
 https://ronniejamestorres.github.io/cookie-clicker-tailwind-groupe/build/index.html
 git@github.com:ronniejamestorres/cookie-clicker-tailwind-groupe.git
 
-![Alt text](/img//test.jpg "Optional title")
 ![Alt text](/img//img1.jpg "Optional title")
 ![Alt text](/img//img2.jpg "Optional title")
